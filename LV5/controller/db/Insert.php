@@ -26,13 +26,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         if (empty($errors) == true) {
             move_uploaded_file($file_tmp, $target_dir . $file_name);
-            echo "Success";
+            //echo "Success";
         } else {
             print_r($errors);
         }
     }
     $db = new DbHandler();
-    $db->insert("INSERT INTO fighters(name,age,catInfo,wins,loss,img) VALUES ('{$fighter_name}','{$fighter_age}','{$fighter_info}','{$fighter_wins}','{$fighter_loss}','{$file_name}')");
+    $result = $db->select("SELECT * FROM fighters WHERE name='{$fighter_name}'");
+    $num_rows = $result->num_rows;
+    if($num_rows == 0){
+        $db->insert("INSERT INTO fighters(name,age,catInfo,wins,loss,img) VALUES ('{$fighter_name}','{$fighter_age}','{$fighter_info}','{$fighter_wins}','{$fighter_loss}','{$file_name}')");
+    }else{
+        die("Fighter already exists.");
+    }
+    header("Location: http://localhost//lv5/index.php");
 }
 
 
