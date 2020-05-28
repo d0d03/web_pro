@@ -128,9 +128,9 @@
         <div class="col-2 d-flex flex-column align-items-center">
             <p class="display-4">VS</p>
             <button id="generateFight" class="btn btn-primary mb-4 btn-lg">Fight</button>
-            <button id="addNew" class="btn btn-dark">Add New Fighter</button>
-            <br/>
             <button id="randomFight" class="btn btn-secondary">Select Random fighters</button>
+            <br/>
+            <button id="addNew" class="btn btn-dark">Add New Fighter</button>
             
         </div>
         <div id="secondSide" class="container d-flex flex-column align-items-center side second-side col-5">
