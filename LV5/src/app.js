@@ -9,7 +9,6 @@ class FighterSelector{
         this._random(document.querySelector(".btn-secondary"));
         this._fight();
         this._addNew();
-
     }
 
     _addNew(){
@@ -27,9 +26,9 @@ class FighterSelector{
         currentFighter[1].setAttribute("style","none");
         document.getElementsByTagName("h2")[0].innerHTML = "Choose your cat"
         Array.from(this.fighterList).forEach(item =>{
-            if(item.lastChild.previousSibling.src != currentFighter[0].src && item.lastChild.previousSibling.src != currentFighter[1].src){
+            if(item.firstChild.nextSibling.src != currentFighter[0].src && item.firstChild.nextSibling.src != currentFighter[1].src){
                 item.style.display = "block";
-            }else if(item.lastChild.previousSibling.src == currentFighter[0].src){
+            }else if(item.firstChild.nextSibling.src == currentFighter[0].src){
                 item.style.display = "none";
                 this._setInfo(JSON.parse(item.dataset.info),0);
             }else{
@@ -37,24 +36,21 @@ class FighterSelector{
                 this._setInfo(JSON.parse(item.dataset.info),1);
             }
         })
-
     }
 
     _clickHandler(){
         Array.from(this.fighterList).forEach(item=>{
             let fighterSide = item.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-            let fighterInfo = JSON.parse(item.dataset.info);
             item.addEventListener("click", (e)=>{
                 e.preventDefault();
+                let fighterInfo = JSON.parse(item.dataset.info);
                 let chosenOneImg = document.querySelectorAll(".featured-cat-fighter-image")
                 if(fighterSide == "firstSide"){
-                    chosenOneImg[0].src = e.srcElement.src;
-                    this.fighterList[parseInt(e.srcElement.alt.substring(11))+5].style.display="none";
+                    chosenOneImg[0].src = item.childNodes[1].src;
                     this._setInfo(fighterInfo,0);
                     this._refreshFighters();
                 }else{
-                    chosenOneImg[1].src = e.srcElement.src;
-                    this.fighterList[parseInt(e.srcElement.alt.substring(11))-1].style.display="none";
+                    chosenOneImg[1].src = item.childNodes[1].src;
                     this._setInfo(fighterInfo,1);
                     this._refreshFighters();
                 }
@@ -75,9 +71,9 @@ class FighterSelector{
             let fighterInfo1 = JSON.parse(fighterArray[rnd1].dataset.info);
             let fighterInfo2 = JSON.parse(fighterArray[rnd2].dataset.info);
 
-            chosenOneImg[0].src = fighterArray[rnd1].lastChild.previousSibling.src;
+            chosenOneImg[0].src = fighterArray[rnd1].firstChild.nextSibling.src;
             this._setInfo(fighterInfo1,0);
-            chosenOneImg[1].src = fighterArray[rnd2].lastChild.previousSibling.src;
+            chosenOneImg[1].src = fighterArray[rnd2].firstChild.nextSibling.src;
             this._setInfo(fighterInfo2,1);
 
             this._refreshFighters();
@@ -136,7 +132,11 @@ class FighterSelector{
                 contenders[result[1]].setAttribute("style","border:5px solid red");
                 document.getElementsByTagName("h2")[0].innerHTML = "winner is " + contendersInfo[result[0]].children[0].innerHTML;
                 Array.from(fighterList).forEach(item =>{
-                    item.style.display = "block";
+                    if(item.style.display=="none"){
+                        item.style.display=="none"
+                    }else{
+                        item.style.display = "block";
+                    }
                 })
                 document.querySelector(".btn-secondary").disabled = false;
             }
@@ -184,4 +184,4 @@ class FighterSelector{
 }
 
 const FighterSelectorObj = new FighterSelector();
-var i  = FighterSelectorObj.init();
+FighterSelectorObj.init();
