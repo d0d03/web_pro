@@ -2,14 +2,16 @@
 require __DIR__ . "./../DbHandler.php";
 
 use Db\DbHandler;
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $fighter_id = $_GET['id'];
     $target_dir = "D:/xampp/htdocs/web_pro/LV5/img/";
     $fighter_name = $_POST['fname'];
     $fighter_age = $_POST['fage'];
     $fighter_info = $_POST['finfo'];
     $fighter_wins = $_POST['fwins'];
     $fighter_loss = $_POST['floss'];
-    if(isset($_FILES['fimg'])) {
+    if(isset($_FILES['fimg']) && $_FILES['fimg']['name']!="") {
         $errors = array();
         $file_name = $_FILES['fimg']['name'];
         $file_size = $_FILES['fimg']['size'];
@@ -30,16 +32,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         } else {
             print_r($errors);
         }
-    }
-    $db = new DbHandler();
-    $result = $db->select("SELECT * FROM fighters WHERE name='{$fighter_name}'");
-    $num_rows = $result->num_rows;
-    if($num_rows == 0){
-        $db->insert("INSERT INTO fighters(name,age,catInfo,wins,loss,img) VALUES ('{$fighter_name}','{$fighter_age}','{$fighter_info}','{$fighter_wins}','{$fighter_loss}','{$file_name}')");
+        $db = new DbHandler();
+        $db->update("UPDATE fighters SET name='{$fighter_name}', age='{$fighter_age}', catInfo='{$fighter_info}', wins='{$fighter_wins}', loss='{$fighter_loss}', img='{$file_name}' WHERE id='{$fighter_id}'");
     }else{
-        die("Fighter already exists.");
+        $db = new DbHandler();
+        $db->update("UPDATE fighters SET name='{$fighter_name}', age='{$fighter_age}', catInfo='{$fighter_info}', wins='{$fighter_wins}', loss='{$fighter_loss}' WHERE id='{$fighter_id}'");
     }
     header("Location: http://localhost/web_pro/LV5/index.php");
 }
-
-

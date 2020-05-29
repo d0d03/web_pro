@@ -3,7 +3,7 @@ require "./controller/DbHandler.php";
 use Db\DbHandler;
 $db = new DbHandler();
 $fighter_id = $_GET['id'];
-$result = $db->select("SELECT name,age,catInfo,wins,loss,img FROM fighters WHERE id = '{$fighter_id}'");
+$result = $db->select("SELECT id,name,age,catInfo,wins,loss,img FROM fighters WHERE id = '{$fighter_id}'");
 $row = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $row = $result->fetch_assoc();
 <body class="row">
 <h1 class="col-sm-10">CFC 3 - UPDATE FIGHTER</h1>
 <a class="col-sm-2" href="./index.php" alt="home">GO BACK-></a>
-<form class="container" action="./controller/db/Insert.php" method="post" enctype="multipart/form-data">
+<form class="container" action="./controller/db/UpdateFighter.php?id=<?=$fighter_id?>" method="post" enctype="multipart/form-data">
     <p class="from-group row">
         <label for="fname" class="col-sm-2 col-form-label">Name: </label>
         <input type="text" name="fname" id="fname" class="col-sm-10" value="<?=$row['name'];?>" required/>
@@ -44,15 +44,31 @@ $row = $result->fetch_assoc();
     <p class="from-group row">
         <label for="fimg" class="col-sm-2 col-from-label">Cat image: </label>
         <!--TODO set img-->
-        <input type="file" id="fimg" name="fimg" class="col-sm-10" value="/img/<?=$row['img'];?>" required></input>
+        <input type="file" id="fimg" name="fimg" class="col-sm-10" required/>
+    </p>
+    <p>
+        <input type="checkbox" name="cbox" id="cbox" onclick="changeImgReq()" value="Use current"/>
+        <label for="cbox">Use current image</label>
+        <script>
+            function changeImgReq(){
+                let checkbox = document.getElementById("cbox");
+                if(checkbox.checked==true){
+                    document.getElementById("fimg").required=false;
+                }else{
+                    document.getElementById("fimg").required=false;
+                }
+            }
+        </script>
     </p>
     <p class="from-group row">
         <button type="submit" id="fsubmit" name="fsubmit" class="col-sm-12">SUBMIT</button>
     </p>
     <p class="from-group row">
-        <button type="submit" id="btnDel" name="btnDel" class="col-sm-12">DELETE FIGHTER</button>
+        <button type="submit" formmethod="POST" formaction="./controller/db/Delete.php?id=<?=$fighter_id?>" id="btnDel" name="btnDel" class="col-sm-12">DELETE FIGHTER</button>
     </p>
 </form>
+
+
 
 </body>
 </html>

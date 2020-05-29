@@ -114,6 +114,8 @@ class FighterSelector{
                 item.style.display = "none";
             })
             document.querySelector(".btn-secondary").disabled = true;
+            document.querySelector(".btn-dark").disabled = true;
+            btn.disabled = true;
             this._countDown(this.fighterList);
         })
     }
@@ -148,6 +150,9 @@ class FighterSelector{
                     }
                 })
                 document.querySelector(".btn-secondary").disabled = false;
+                document.querySelector(".btn-primary").disabled = false;
+                document.querySelector(".btn-dark").disabled = false;
+
             }
             ,4000);
     }
