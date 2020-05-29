@@ -39,4 +39,13 @@ class DbHandler{
         $this->disconnect();
         return $sql;
     }
+
+    public function update($queryInput){
+        $this->connect();
+        $sql = $this->connection->query($queryInput);
+        if(!$sql){
+            echo "Query fail";
+        }
+        $this->disconnect();
+    }
 }

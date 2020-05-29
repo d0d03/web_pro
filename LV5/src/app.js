@@ -105,7 +105,6 @@ class FighterSelector{
             })
             document.querySelector(".btn-secondary").disabled = true;
             this._countDown(this.fighterList);
-            this._refreshFighters();
         })
     }
 
@@ -132,8 +131,8 @@ class FighterSelector{
                 contenders[result[1]].setAttribute("style","border:5px solid red");
                 document.getElementsByTagName("h2")[0].innerHTML = "winner is " + contendersInfo[result[0]].children[0].innerHTML;
                 Array.from(fighterList).forEach(item =>{
-                    if(item.style.display=="none"){
-                        item.style.display=="none"
+                    if(item.firstChild.nextSibling.src == contenders[0].src || item.firstChild.nextSibling.src == contenders[1].src){
+                        item.style.display = "none";
                     }else{
                         item.style.display = "block";
                     }
@@ -154,31 +153,43 @@ class FighterSelector{
             limit-= (fTwoPercent-fOnePercent<=0.1 ? 0.1 : 0.2);
         }
         var result = (rng<=limit ? [0,1] : [1,0]);
-        Array.from(this.fighterList).forEach(item=>{
-            if(JSON.parse(item.dataset.info)["name"] == fOne["name"]){
-                var newRecord1 = JSON.parse(item.dataset.info);
-                if(result[0] == 0){
-                    newRecord1["record"]["wins"]+=1;
-                    item.setAttribute("data-info",JSON.stringify(newRecord1));
-                }else{
-                    newRecord1["record"]["loss"]+=1;
-                    item.setAttribute("data-info",JSON.stringify(newRecord1));
-                }
-            }
-            if(JSON.parse(item.dataset.info)["name"] == fTwo["name"]){
-                var newRecord2 = JSON.parse(item.dataset.info);
-                if(result[0] == 1){
-                    newRecord2["record"]["wins"]+=1;
-                    item.setAttribute("data-info",JSON.stringify(newRecord2));
-
-                }else{
-                    newRecord2["record"]["loss"]+=1;
-                    item.setAttribute("data-info",JSON.stringify(newRecord2));
-                }
-            }
+        var data = new FormData();
+        data.append('name1',fOne["name"]);
+        data.append('name2',fTwo["name"]);
+        data.append('results',result.toString());
+        fetch('controller/db/Update.php',{
+            method:'post',
+            body:data
         })
-        this._setInfo(fOne,0);
-        this._setInfo(fTwo,1);
+            .then(response=>response.text())
+            .then(response=>{
+                Array.from(this.fighterList).forEach(item=>{
+                    if(JSON.parse(item.dataset.info)["name"] == fOne["name"]){
+                        var newRecord1 = JSON.parse(item.dataset.info);
+                        if(result[0] == 0){
+                            newRecord1["record"]["wins"]+=1;
+                            item.setAttribute("data-info",JSON.stringify(newRecord1));
+                        }else{
+                            newRecord1["record"]["loss"]+=1;
+                            item.setAttribute("data-info",JSON.stringify(newRecord1));
+                        }
+                    }
+                    if(JSON.parse(item.dataset.info)["name"] == fTwo["name"]){
+                        var newRecord2 = JSON.parse(item.dataset.info);
+                        if(result[0] == 1){
+                            newRecord2["record"]["wins"]+=1;
+                            item.setAttribute("data-info",JSON.stringify(newRecord2));
+
+                        }else{
+                            newRecord2["record"]["loss"]+=1;
+                            item.setAttribute("data-info",JSON.stringify(newRecord2));
+                        }
+                    }
+                })
+                this._setInfo(fOne,0);
+                this._setInfo(fTwo,1);
+            })
+        .catch(error=> alert(error));
         return result;
     }
 }

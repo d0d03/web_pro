@@ -37,10 +37,10 @@
             <div class="col-auto w-100" style="margin-top: 24px">
                 <div class="row fighter-list">
                     <?php
-                    require "./controller/DbHandler.php";
-                    use Db\DbHandler;
-                    $db = new DbHandler();
-                    $result = $db->select("SELECT id,name,age,catInfo,wins,loss,img FROM fighters");
+                        require "./controller/DbHandler.php";
+                        use Db\DbHandler;
+                        $db = new DbHandler();
+                        $result = $db->select("SELECT id,name,age,catInfo,wins,loss,img FROM fighters");
                     ?>
                     <?php if($result->num_rows>0):?>
                         <?php while($row=$result->fetch_assoc()):?>
