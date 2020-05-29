@@ -48,7 +48,7 @@
                                 <div class="fighter-box"
                                      data-info='{"id": <?=$row["id"];?>, "name": "<?=$row["name"];?>", "age": <?=$row["age"];?>, "catInfo": "<?=$row["catInfo"];?>", "record": { "wins": <?=$row["wins"];?>, "loss": <?=$row["loss"];?>} }'>
                                     <img src="./img/<?=$row["img"];?>" alt="Fighter Box" . <?=$row["id"];?> width="150" height="150">
-                                    <button>Edit</button>
+                                    <button id="btnEdit" class="btn btn-success" name="<?=$row["id"];?>">Edit</button>
                                 </div>
                             </div>
                         <?php endwhile;?>
@@ -86,7 +86,7 @@
                                 <div class="fighter-box"
                                      data-info='{"id": <?=$row["id"];?>, "name": "<?=$row["name"];?>", "age": <?=$row["age"];?>, "catInfo": "<?=$row["catInfo"];?>", "record": { "wins": <?=$row["wins"];?>, "loss": <?=$row["loss"];?>} }'>
                                     <img src="./img/<?=$row["img"];?>" alt="Fighter Box" . <?=$row["id"];?> width="150" height="150">
-                                    <button>Edit</button>
+                                    <button id="btnEdit" class="btn btn-success" name="<?=$row["id"];?>">Edit</button>
                                 </div>
                             </div>
                         <?php endwhile;?>

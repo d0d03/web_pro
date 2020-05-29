@@ -9,6 +9,16 @@ class FighterSelector{
         this._random(document.querySelector(".btn-secondary"));
         this._fight();
         this._addNew();
+        this._edit();
+    }
+    _edit(){
+        let editBtns = document.querySelectorAll("#btnEdit");
+        Array.from(editBtns).forEach(btn=>{
+            btn.addEventListener("click",(e)=>{
+                e.preventDefault();
+                location.replace("./editFighter.php?id="+ (btn.name));
+            })
+        })
     }
 
     _addNew(){

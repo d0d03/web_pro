@@ -48,4 +48,13 @@ class DbHandler{
         }
         $this->disconnect();
     }
+
+    public function delete($queryInput){
+        $this->connect();
+        $sql = $this->connection->query("DELETE FROM fighters WHERE id='{$queryInput}'");
+        if(!$sql){
+            echo "Query fail";
+        }
+        $this->disconnect();
+    }
 }
