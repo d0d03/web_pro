@@ -8,4 +8,4 @@ echo $fighter_id;
 
 $db = new DbHandler();
 $db->delete("$fighter_id");
-header("Location: http://localhost/web_pro/LV5/index.php");
+header("Location: ../../index.php");

@@ -38,5 +38,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db = new DbHandler();
         $db->update("UPDATE fighters SET name='{$fighter_name}', age='{$fighter_age}', catInfo='{$fighter_info}', wins='{$fighter_wins}', loss='{$fighter_loss}' WHERE id='{$fighter_id}'");
     }
-    header("Location: http://localhost/web_pro/LV5/index.php");
+    header("Location: ../../index.php");
 }

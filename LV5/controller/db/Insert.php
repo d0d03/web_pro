@@ -34,12 +34,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $db = new DbHandler();
     $result = $db->select("SELECT * FROM fighters WHERE name='{$fighter_name}'");
     $num_rows = $result->num_rows;
-    if($num_rows == 0){
+    if($num_rows == 0) {
         $db->insert("INSERT INTO fighters(name,age,catInfo,wins,loss,img) VALUES ('{$fighter_name}','{$fighter_age}','{$fighter_info}','{$fighter_wins}','{$fighter_loss}','{$file_name}')");
-    }else{
-        die("Fighter already exists.");
     }
-    header("Location: http://localhost/web_pro/LV5/index.php");
+    header("Location: ../../index.php");
 }
 
 

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="131ad07f-e855-4064-a5d3-7c8491582530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LV5/controller/db/Delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/Delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LV5/controller/db/Insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/Insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/editFighter.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/editFighter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590774755833</updated>
-      <workItem from="1590774759989" duration="6503000" />
+      <workItem from="1590774759989" duration="7108000" />
+      <workItem from="1590831489460" duration="1383000" />
     </task>
     <servers />
   </component>
