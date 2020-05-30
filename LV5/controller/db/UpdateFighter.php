@@ -5,7 +5,7 @@ use Db\DbHandler;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fighter_id = $_GET['id'];
-    $target_dir = "D:/xampp/htdocs/web_pro/LV5/img/";
+    $target_dir = "./../../img/";
     $fighter_name = $_POST['fname'];
     $fighter_age = $_POST['fage'];
     $fighter_info = $_POST['finfo'];
