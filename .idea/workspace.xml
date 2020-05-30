@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="131ad07f-e855-4064-a5d3-7c8491582530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/controller/db/Delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/Delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/controller/db/Insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/Insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" afterDir="false" />
+    <list default="true" id="9e6cb91d-eebd-474e-9e9c-6a9b1ba8e636" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/web_pro.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1calnwfmuwgNXwfFU4X8lhJB9H9" />
+  <component name="ProjectId" id="1cclfYp9B0eEyBlkcYXPogdvFYQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,13 +34,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="131ad07f-e855-4064-a5d3-7c8491582530" name="Default Changelist" comment="" />
-      <created>1590774755833</created>
+      <changelist id="9e6cb91d-eebd-474e-9e9c-6a9b1ba8e636" name="Default Changelist" comment="" />
+      <created>1590835866134</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1590774755833</updated>
-      <workItem from="1590774759989" duration="7108000" />
-      <workItem from="1590831489460" duration="1383000" />
+      <updated>1590835866134</updated>
+      <workItem from="1590835871765" duration="36000" />
     </task>
     <servers />
   </component>
