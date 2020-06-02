@@ -25,11 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6cb91d-eebd-474e-9e9c-6a9b1ba8e636" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/controller/db/Insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/Insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/controller/db/UpdateFighter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LV5/editFighter.php" beforeDir="false" afterPath="$PROJECT_DIR$/LV5/editFighter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590835866134</updated>
       <workItem from="1590835871765" duration="36000" />
-      <workItem from="1590837958189" duration="1632000" />
+      <workItem from="1590837958189" duration="2232000" />
+      <workItem from="1591106518125" duration="765000" />
     </task>
     <servers />
   </component>
@@ -84,6 +82,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590838226381">

@@ -4,7 +4,7 @@ require __DIR__ . "./../DbHandler.php";
 use Db\DbHandler;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $fighter_id = $_GET['id'];
+    $fighter_id = $_POST['id'];
     $target_dir = "./../../img/";
     $fighter_name = $_POST['fname'];
     $fighter_age = $_POST['fage'];
